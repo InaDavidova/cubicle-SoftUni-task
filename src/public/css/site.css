@@ -32,6 +32,7 @@ header {
     list-style-type: none;
     margin: auto;
     padding: 0;
+    height: 17vh;
     background-color: #607588;
 }
 
@@ -57,6 +58,7 @@ main {
     margin: 0 4em;
     border-radius: 15px;
     padding: 2em;
+    min-height: 79vh;
 }
 
 div.container {
@@ -235,6 +237,7 @@ footer {
     text-align: center;
     color: white;
     font-size: 20px;
+    height: 4vh;
 }
 
 /*Animations & Transitions

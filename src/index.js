@@ -1,19 +1,14 @@
 const express = require('express');
-const { create: handlebars } = require('express-handlebars');
 const path = require('path');
+const routes = require('./routes.js');
+
+const initHandlebars = require('./config/handlebars.js')
 
 const app = express();
 
-app.set('views', path.resolve('./src/views'));
+initHandlebars(app);
 
-app.engine('hbs', handlebars({
-    extname: 'hbs'
-}).engine);
-
-app.set('view engine', 'hbs');
-
-app.all('/', (req, res)=>{
-    res.render('index');
-});
+app.use(express.static(path.resolve(__dirname, './public')));
+app.use(routes);
 
 app.listen(5000, ()=> console.log('Server is running on port 5000'))

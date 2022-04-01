@@ -42,10 +42,29 @@ const getCubeById = (id) => {
   return cubeDB.find((el) => el.id === id);
 };
 
+const filterCubes = (searchObj) => {
+  let result = cubeDB.slice();
+
+  if (searchObj.name) {
+    result = result.filter((el) => el.name.toLowerCase().includes(searchObj.name.toLowerCase()));
+  }
+
+  if (searchObj.from) {
+    result = result.filter((el) => el.difficulty >= Number(searchObj.from));
+  }
+
+  if (searchObj.to) {
+    result = result.filter((el) => el.difficulty <= Number(searchObj.to));
+  }
+
+  return result;
+};
+
 const cubeService = {
   create,
   getAllCubes,
-  getCubeById
+  getCubeById,
+  filterCubes,
 };
 
 module.exports = cubeService;

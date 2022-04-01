@@ -5,7 +5,6 @@ const router = express.Router();
 
 const home = (req, res) => {
   let cubes = cubeService.getAllCubes();
-
   res.render("index", { cubes });
 };
 

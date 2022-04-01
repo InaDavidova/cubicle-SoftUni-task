@@ -5,7 +5,13 @@ const router = express.Router();
 
 const searchPage = (req, res)=>{
     const cubes = cubeService.filterCubes(req.query);
-    res.render('index', {inputs: req.query ,cubes});
+
+    if(req.query.name || req.query.from || req.query.to){
+        res.render('index', {inputs: req.query ,cubes});
+
+    } else {
+        res.redirect('/');
+    }
 }
 
 router.get('/search', searchPage);

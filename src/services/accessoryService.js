@@ -13,10 +13,16 @@ const getManyByIds = (array) =>{
     .where('_id').in(array).lean();
 }
 
+const getAccessoriesNotOwnedByCube = (array) =>{
+    return Accessory.find({})
+    .where('_id').nin(array).lean();
+}
+
 const accessoryService = {
     create, 
     getAllAccessories,
-    getManyByIds
+    getManyByIds,
+    getAccessoriesNotOwnedByCube
 };
 
 module.exports = accessoryService;

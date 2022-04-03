@@ -5,7 +5,7 @@ const router = express.Router();
 
 const addAccessoryPage = async (req, res) => {
     const cube = await cubeService.getCubeById(req.params.id);
-    const accessories = await accessoryService.getAllAccessories();
+    const accessories = await accessoryService.getAccessoriesNotOwnedByCube(cube.accessories);
     res.render('attachAccessory', {cube, accessories});
 }
 

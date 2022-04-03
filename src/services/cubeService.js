@@ -43,8 +43,8 @@ const getAllCubes = () => Cube.find({}).lean();
 
 const getCubeById = (id) => Cube.findById(id).lean();
 
-const filterCubes = (searchObj) => {
-  let result = getAllCubes();
+const filterCubes = async (searchObj) => {
+  let result = await getAllCubes();
 
   if (searchObj.name) {
     result = result.filter((el) => el.name.toLowerCase().includes(searchObj.name.toLowerCase()));

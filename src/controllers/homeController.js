@@ -3,8 +3,8 @@ const cubeService = require("../services/cubeService.js");
 
 const router = express.Router();
 
-const home = (req, res) => {
-  let cubes = cubeService.getAllCubes();
+const home = async (req, res) => {
+  let cubes = await cubeService.getAllCubes();
   res.render("index", { cubes });
 };
 

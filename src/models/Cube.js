@@ -1,14 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const accessoryService = require("../services/accessoryService");
 
 const cubeSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
     required: true,
-    maxlength: 100
+    maxlength: 100,
   },
   imageUrl: {
     type: String,
@@ -17,17 +18,23 @@ const cubeSchema = new mongoose.Schema({
       validator: function (value) {
         return /^https?:\/\//i.test(value);
       },
-      message: 'Image Url is invalid!'
+      message: "Image Url is invalid!",
     }
   },
   difficulty: {
     type: Number,
     required: true,
     min: 1,
-    max: 6
-  }
+    max: 6,
+  },
+  accessories: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref:'Accessory'
+    }
+  ],
 });
 
-const Cube = mongoose.model('Cube', cubeSchema);
+const Cube = mongoose.model("Cube", cubeSchema);
 
 module.exports = Cube;

@@ -7,6 +7,9 @@ const detailsConreoller = require('./controllers/detailsController.js');
 const searchController = require('./controllers/searchController.js');
 const creatAccessoryController = require('./controllers/createAccessoryController.js');
 const attachAccessoryController = require('./controllers/attachAccessoryController.js');
+const loginController = require('./controllers/loginController.js');
+const registerController = require('./controllers/registerController.js');
+
 const router = express.Router();
 
 router.use(homeController);
@@ -16,6 +19,8 @@ router.use(detailsConreoller);
 router.use(searchController);
 router.use(creatAccessoryController);
 router.use(attachAccessoryController);
+router.use(loginController);
+router.use(registerController);
 router.use(error);
 
 module.exports = router;

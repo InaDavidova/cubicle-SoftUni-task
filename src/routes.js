@@ -9,6 +9,7 @@ const creatAccessoryController = require('./controllers/createAccessoryControlle
 const attachAccessoryController = require('./controllers/attachAccessoryController.js');
 const loginController = require('./controllers/loginController.js');
 const registerController = require('./controllers/registerController.js');
+const logoutController = require('./controllers/logoutController.js');
 
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.use(creatAccessoryController);
 router.use(attachAccessoryController);
 router.use(loginController);
 router.use(registerController);
+router.use(logoutController);
 router.use(error);
 
 module.exports = router;

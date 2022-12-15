@@ -12,10 +12,12 @@ const registerUser = async (req, res) => {
 
     if (password == repeatPassword){
         const cryptedPassword = await bcrypt.hash(password, 9);
-        console.log(cryptedPassword);
-
+        
         await register(username, cryptedPassword);
-        res.redirect('/login');
+        
+        req.session.user = { id: user._id, username: user.username};
+
+        res.redirect('/');
     }
 
 }

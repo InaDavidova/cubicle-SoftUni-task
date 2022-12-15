@@ -4,8 +4,8 @@ const register = (username, password) => {
   return User.create({ username, password });
 };
 
-const login = (username, password) => {
-    
+const login =  (username, password) => {
+    return User.findOne({username});
 }
 
 const authService = {
